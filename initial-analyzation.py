@@ -151,10 +151,10 @@ confidence_val=90.0
 is_valid = validate_document_confidence(textract_analysis, percent_of_doc, confidence_val)
 if is_valid:
     # print(f"Document is valid because over {percent_of_doc*100}% of the document was detected with a confidence score of over {confidence_val}.")
-    low_res_finding = Finding("Low Resolution", "OtherLowRes", FindingStatus.TRUE, f"Document is valid because over {percent_of_doc*100}% of the document was detected with a confidence score of over {confidence_val}.")
+    low_res_finding = Finding("Low Resolution", "OtherLowRes", FindingStatus.FALSE, f"Document is valid because over {percent_of_doc*100}% of the document was detected with a confidence score of over {confidence_val}.")
 if not is_valid:
     # print(f"Document is not valid because over {percent_of_doc*100}% of the document was detected with a confidence score of under {confidence_val}.")
-    low_res_finding = Finding("Low Resolution", "OtherLowRes", FindingStatus.FALSE, f"Document is not valid because over {percent_of_doc*100}% of the document was detected with a confidence score of under {confidence_val}.")
+    low_res_finding = Finding("Low Resolution", "OtherLowRes", FindingStatus.TRUE, f"Document is not valid because over {percent_of_doc*100}% of the document was detected with a confidence score of under {confidence_val}.")
 findings.add_finding(low_res_finding)
 
 ## Fraud Finding
